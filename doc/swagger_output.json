@@ -1,0 +1,130 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2.0.0",
+    "title": "API para cadastro de nomes",
+    "description": "API feita com destino ao estudo."
+  },
+  "host": "localhost:8000",
+  "basePath": "/renan",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/cadastrarNome": {
+      "post": {
+        "tags": [
+          "Nomes"
+        ],
+        "summary": "",
+        "description": "Esta rota é destinada para o cadastro de nomes ",
+        "parameters": [
+          {
+            "name": "dados",
+            "in": "body",
+            "description": "nomes",
+            "schema": {
+              "$ref": "#/definitions/nomes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/getNomes": {
+      "get": {
+        "tags": [
+          "Nomes"
+        ],
+        "summary": "",
+        "description": "Esta rota é destinada a puxar os nomes cadastrados",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/updateNomes": {
+      "put": {
+        "tags": [
+          "Nomes"
+        ],
+        "summary": "",
+        "description": "Esta rota é destinada para atualizar os nomes já inseridos",
+        "parameters": [
+          {
+            "name": "nome",
+            "description": "",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "dadosAtualizados",
+            "in": "body",
+            "description": "nomes",
+            "schema": {
+              "$ref": "#/definitions/nomes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/deleteNomes": {
+      "delete": {
+        "tags": [
+          "Nomes"
+        ],
+        "summary": "",
+        "description": "Esta rota é destinada a deletar nomes já cadastrados",
+        "parameters": [
+          {
+            "name": "nome",
+            "description": "deletar nomes",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "nomes": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "Renan"
+        },
+        "idade": {
+          "type": "number",
+          "example": 10
+        }
+      }
+    }
+  },
+  "schemas": [
+    "http"
+  ]
+}
